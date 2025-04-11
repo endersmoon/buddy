@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       >
         <Sidebar />
         <div className="pb-16 sm:pb-0 sm:pl-64 pt-12">
-        <main className=" mx-auto  max-w-[650px] px-4 " >
+        <main className=" mx-auto  max-w-[840px] px-4 " >
           {children}
         </main>
         </div>

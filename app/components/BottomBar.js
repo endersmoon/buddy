@@ -18,7 +18,7 @@ export default function BottomBar() {
               href={item.path}
               className={`${
                 pathname === item.path
-                  ? 'text-indigo-600'
+                  ? 'text-primary'
                   : 'text-gray-500 hover:text-gray-700'
               } flex flex-col items-center py-2 px-4`}
             >
