@@ -54,7 +54,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarMenuItem>
+        
           <SidebarMenuButton
             size="lg"
             className="w-full data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground hover:bg-accent hover:text-accent-foreground"
@@ -71,7 +71,7 @@ export function AppSidebar() {
             </div>
             <MoreVerticalIcon className="ml-auto size-4" />
           </SidebarMenuButton>
-        </SidebarMenuItem>
+        
       </SidebarFooter>
     </Sidebar>
   );
