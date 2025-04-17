@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         <SidebarProvider>
           <div className="flex h-screen">
             <AppSidebar />
-            <main className="flex-1 overflow-auto">
+            <main className="w-[100vw]  md:w-[calc(100vw-256px)] overflow-auto">
               {children}
             </main>
           </div>

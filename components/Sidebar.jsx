@@ -15,6 +15,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { MoreVerticalIcon } from "lucide-react";
 import { navItems } from "@/app/config/navigation";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const dummyUser = {
   name: "Arjun Goley",
@@ -22,11 +23,14 @@ const dummyUser = {
   avatar: "https://github.com/shadcn.png"
 };
 
-export function AppSidebar() {
+export function AppSidebar({ className }) {
   const pathname = usePathname();
 
   return (
-    <Sidebar>
+    <Sidebar className={cn(
+      "bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
+      className
+    )}>
       <SidebarHeader>
         <div className="flex items-center justify-center p-4">
           <h1 className="text-xl font-bold">Buddy</h1>
