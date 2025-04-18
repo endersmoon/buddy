@@ -81,25 +81,44 @@ export default function MeetingNotesPage() {
         const transcript = Array.from(event.results)
           .map(result => result[0].transcript)
           .join('');
-        setNotes(transcript);
+        setNotes(prev => prev + ' ' + transcript);
       };
 
       recognition.onerror = (event) => {
         console.error('Speech recognition error', event.error);
+        if (event.error === 'no-speech' || event.error === 'audio-capture') {
+          alert('Please ensure your microphone is enabled and you have granted permission to use it.');
+        }
       };
 
-      recognition.start();
-      setIsRecording(true);
-      recognitionRef.current = recognition;
+      recognition.onend = () => {
+        if (isRecording) {
+          // Restart recognition if it ended unexpectedly
+          recognition.start();
+        }
+      };
+
+      try {
+        recognition.start();
+        setIsRecording(true);
+        recognitionRef.current = recognition;
+      } catch (error) {
+        console.error('Failed to start recognition:', error);
+        alert('Failed to start speech recognition. Please try again.');
+      }
     } else {
-      alert('Speech recognition is not supported in this browser.');
+      alert('Speech recognition is not supported in this browser. Please use a supported browser like Chrome or Safari.');
     }
   };
 
   const stopRecording = () => {
     if (recognitionRef.current) {
-      recognitionRef.current.stop();
-      setIsRecording(false);
+      try {
+        recognitionRef.current.stop();
+        setIsRecording(false);
+      } catch (error) {
+        console.error('Failed to stop recognition:', error);
+      }
     }
   };
 

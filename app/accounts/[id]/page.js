@@ -44,7 +44,7 @@ export default function CompanyDetails({ params }) {
         </TabsList>
 
         <TabsContent value='overview' className='mt-6'>
-          <div className='grid grid-cols-2 gap-6'>
+          <div className='grid grid-cols-1 gap-6'>
             <div className='bg-white p-6 rounded-lg border'>
               <h2 className='text-lg font-semibold mb-4'>Company Information</h2>
               <div className='space-y-4'>
